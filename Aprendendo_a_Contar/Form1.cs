@@ -30,8 +30,8 @@ namespace Aprendendo_a_Contar
         {
             for (int i = 0; i < 30; i++)
             {
-                int f = (i / 3) % 3 + 1; 
-                int j = (i % 3) + 1;     
+                int f = (i / 3) + 1;       // muda a cada 3 imagens → 1 até 10
+                int j = (i % 3) + 1;       // repete 1, 2, 3
 
                 string caminho = Directory.GetCurrentDirectory() + "\\img_" + f + "_ (" + j + ").jpg";
 
