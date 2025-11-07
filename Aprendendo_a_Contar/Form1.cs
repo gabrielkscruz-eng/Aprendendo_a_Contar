@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.SqlTypes;
 
 namespace Aprendendo_a_Contar
 {
@@ -27,18 +28,14 @@ namespace Aprendendo_a_Contar
         #region load das img
         private void atribuicao_img()
         {
-           
-            for (int i = 1; i < 30; i++)
+            for (int i = 0; i < 30; i++)
             {
-                for (int f = 1; f <= 3; f++) 
-                { 
-                for (int j = 1; j <= 3; j++)
-                {
-                    img_array[i] = Image.FromFile(Directory.GetCurrentDirectory() + "\\img_" + (f).ToString() + "_ (" + (j).ToString() + ").jpg");
+                int f = (i / 3) % 3 + 1; 
+                int j = (i % 3) + 1;     
 
-                }
-                }
-                    
+                string caminho = Directory.GetCurrentDirectory() + "\\img_" + f + "_ (" + j + ").jpg";
+
+                img_array[i] = Image.FromFile(caminho);
             }
 
         }
@@ -129,5 +126,55 @@ namespace Aprendendo_a_Contar
         {
 
         }
+        #region Btn Iniciar Jogo
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txt_joogador.Text.Length == 0)
+            {
+                MessageBox.Show("Insira o nome do jogador!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1);
+                txt_joogador.Focus();
+                return;
+            }
+            else {
+                if (txt_jogador2.Visible == true && txt_jogador2.Text.Length == 0)
+                {
+                    MessageBox.Show("Insira o nome do segundo jogador!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1);
+                    txt_jogador2.Focus();
+                    return;
+                }
+                else
+                {
+                    if (btn_iniciar.Text == "Iniciar")
+                    {
+                        MessageBox.Show("Início do jogo", "", MessageBoxButtons.OK, MessageBoxIcon.Information,
+                        MessageBoxDefaultButton.Button1);
+                        gerarNumeroAletorio();
+                        btn_iniciar.Text = "Reiniciar";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Renício do jogo", "", MessageBoxButtons.OK, MessageBoxIcon.Information,
+                        MessageBoxDefaultButton.Button1);
+                        gerarNumeroAletorio();
+                    }
+                }
+        }
+        }
+        #endregion
+
+        #region numero aleatorio
+        private void gerarNumeroAletorio()
+        {
+            
+            pbx_imagens.Image = null;
+            int numero;
+            numero = new Random().Next(1, 30);
+            pbx_imagens.Image = img_array[numero];
+            return;
+
+        }
+        #endregion
     }
 }

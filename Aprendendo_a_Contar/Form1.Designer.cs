@@ -30,7 +30,7 @@
         {
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.Btn_Autores = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_iniciar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -64,7 +64,7 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.Btn_Autores);
-            this.groupBox6.Controls.Add(this.button1);
+            this.groupBox6.Controls.Add(this.btn_iniciar);
             this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(456, 380);
@@ -84,14 +84,15 @@
             this.Btn_Autores.UseVisualStyleBackColor = true;
             this.Btn_Autores.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btn_iniciar
             // 
-            this.button1.Location = new System.Drawing.Point(54, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 43);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Iniciar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_iniciar.Location = new System.Drawing.Point(54, 39);
+            this.btn_iniciar.Name = "btn_iniciar";
+            this.btn_iniciar.Size = new System.Drawing.Size(151, 43);
+            this.btn_iniciar.TabIndex = 0;
+            this.btn_iniciar.Text = "Iniciar";
+            this.btn_iniciar.UseVisualStyleBackColor = true;
+            this.btn_iniciar.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox5
             // 
@@ -357,7 +358,7 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_iniciar;
         private System.Windows.Forms.Button Btn_Autores;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label1;
