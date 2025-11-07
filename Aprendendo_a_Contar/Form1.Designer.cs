@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.Btn_Autores = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pbx_imagens = new System.Windows.Forms.PictureBox();
             this.gbx_jogador = new System.Windows.Forms.GroupBox();
+            this.txt_jogador2 = new System.Windows.Forms.TextBox();
             this.txt_joogador = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rtb_Ind = new System.Windows.Forms.RadioButton();
             this.rtb_dupla = new System.Windows.Forms.RadioButton();
-            this.txt_jogador2 = new System.Windows.Forms.TextBox();
+            this.rtb_Ind = new System.Windows.Forms.RadioButton();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -74,15 +74,6 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Menu:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(54, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 43);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Iniciar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Btn_Autores
             // 
             this.Btn_Autores.Location = new System.Drawing.Point(54, 100);
@@ -92,6 +83,15 @@
             this.Btn_Autores.Text = "Autores";
             this.Btn_Autores.UseVisualStyleBackColor = true;
             this.Btn_Autores.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(54, 39);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(151, 43);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Iniciar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -135,57 +135,6 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(18, 39);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 43);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "1";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(75, 39);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(51, 43);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "2";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(189, 39);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(51, 43);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "4";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(132, 39);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(51, 43);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "3";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(246, 39);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(58, 43);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "5";
-            this.button8.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -237,6 +186,57 @@
             this.button12.Text = "6";
             this.button12.UseVisualStyleBackColor = true;
             // 
+            // button8
+            // 
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(246, 39);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(58, 43);
+            this.button8.TabIndex = 6;
+            this.button8.Text = "5";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(189, 39);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(51, 43);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "4";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(132, 39);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(51, 43);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "3";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(75, 39);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(51, 43);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "2";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(18, 39);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(51, 43);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "1";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pbx_imagens);
@@ -252,9 +252,10 @@
             // pbx_imagens
             // 
             this.pbx_imagens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbx_imagens.Location = new System.Drawing.Point(6, 39);
+            this.pbx_imagens.Location = new System.Drawing.Point(189, 39);
             this.pbx_imagens.Name = "pbx_imagens";
-            this.pbx_imagens.Size = new System.Drawing.Size(651, 169);
+            this.pbx_imagens.Size = new System.Drawing.Size(292, 192);
+            this.pbx_imagens.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbx_imagens.TabIndex = 0;
             this.pbx_imagens.TabStop = false;
             // 
@@ -269,6 +270,14 @@
             this.gbx_jogador.TabIndex = 13;
             this.gbx_jogador.TabStop = false;
             this.gbx_jogador.Text = "Nome do jogador:";
+            // 
+            // txt_jogador2
+            // 
+            this.txt_jogador2.Location = new System.Drawing.Point(6, 82);
+            this.txt_jogador2.Name = "txt_jogador2";
+            this.txt_jogador2.Size = new System.Drawing.Size(286, 40);
+            this.txt_jogador2.TabIndex = 1;
+            this.txt_jogador2.Text = "Jogador 2";
             // 
             // txt_joogador
             // 
@@ -291,18 +300,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // rtb_Ind
-            // 
-            this.rtb_Ind.AutoSize = true;
-            this.rtb_Ind.Location = new System.Drawing.Point(18, 55);
-            this.rtb_Ind.Name = "rtb_Ind";
-            this.rtb_Ind.Size = new System.Drawing.Size(157, 37);
-            this.rtb_Ind.TabIndex = 0;
-            this.rtb_Ind.TabStop = true;
-            this.rtb_Ind.Text = "Individual";
-            this.rtb_Ind.UseVisualStyleBackColor = true;
-            this.rtb_Ind.CheckedChanged += new System.EventHandler(this.rtb_Ind_CheckedChanged);
-            // 
             // rtb_dupla
             // 
             this.rtb_dupla.AutoSize = true;
@@ -315,13 +312,17 @@
             this.rtb_dupla.UseVisualStyleBackColor = true;
             this.rtb_dupla.CheckedChanged += new System.EventHandler(this.rtb_dupla_CheckedChanged);
             // 
-            // txt_jogador2
+            // rtb_Ind
             // 
-            this.txt_jogador2.Location = new System.Drawing.Point(6, 82);
-            this.txt_jogador2.Name = "txt_jogador2";
-            this.txt_jogador2.Size = new System.Drawing.Size(286, 40);
-            this.txt_jogador2.TabIndex = 1;
-            this.txt_jogador2.Text = "Jogador 2";
+            this.rtb_Ind.AutoSize = true;
+            this.rtb_Ind.Location = new System.Drawing.Point(18, 55);
+            this.rtb_Ind.Name = "rtb_Ind";
+            this.rtb_Ind.Size = new System.Drawing.Size(157, 37);
+            this.rtb_Ind.TabIndex = 0;
+            this.rtb_Ind.TabStop = true;
+            this.rtb_Ind.Text = "Individual";
+            this.rtb_Ind.UseVisualStyleBackColor = true;
+            this.rtb_Ind.CheckedChanged += new System.EventHandler(this.rtb_Ind_CheckedChanged);
             // 
             // jogo_contagem
             // 

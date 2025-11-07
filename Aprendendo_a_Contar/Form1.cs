@@ -16,7 +16,35 @@ namespace Aprendendo_a_Contar
         public jogo_contagem()
         {
             InitializeComponent();
+            atribuicao_img();
         }
+
+        #region Vareaveis Globais
+        
+       Image[] img_array = new Image[30];
+        #endregion
+
+        #region load das img
+        private void atribuicao_img()
+        {
+           
+            for (int i = 1; i < 30; i++)
+            {
+                for (int f = 1; f <= 3; f++) 
+                { 
+                for (int j = 1; j <= 3; j++)
+                {
+                    img_array[i] = Image.FromFile(Directory.GetCurrentDirectory() + "\\img_" + (f).ToString() + "_ (" + (j).ToString() + ").jpg");
+
+                }
+                }
+                    
+            }
+
+        }
+
+
+        #endregion
         #region Btn Autor
         private void button2_Click(object sender, EventArgs e)
         {
