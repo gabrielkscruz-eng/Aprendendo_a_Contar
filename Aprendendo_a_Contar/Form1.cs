@@ -36,6 +36,9 @@ namespace Aprendendo_a_Contar
         int jogador2_pontos = 0;
         int contador1 = 0;
         int contador2 = 0;
+        // preservando sua lógica: listas por jogador para registrar índices já vistos
+        List<int> listJog1 = new List<int>();
+        List<int> listJog2 = new List<int>();
 
         // gerador único para evitar comportamento repetido por recriação do Random
         private Random rnd = new Random();
@@ -173,6 +176,16 @@ namespace Aprendendo_a_Contar
                 }
                 else
                 {
+                    // resetar estado ao iniciar/reiniciar
+                    jogador1_pontos = 0;
+                    jogador2_pontos = 0;
+                    contador1 = 0;
+                    contador2 = 0;
+                    listJog1.Clear();
+                    listJog2.Clear();
+                    lbl_pontos1.Text = "0";
+                    lbl_pontos2.Text = "0";
+
                     if (btn_iniciar.Text == "Iniciar")
                     {
                         MessageBox.Show("Início do jogo", "", MessageBoxButtons.OK, MessageBoxIcon.Information,
@@ -276,101 +289,95 @@ namespace Aprendendo_a_Contar
 
         private void verificar_chute(int chute)
         {
-            // j representa o número esperado (1..10), k conta 0..2 para cada grupo de 3 imagens
-            int j = 1;
-            int k = 0;
-            bool encontrada = false;
-
-            for (int i = 0; i < img_array.Length; i++)
+            // identifica índice da imagem exibida no array
+            int idx = Array.IndexOf(img_array, pbx_imagens.Image);
+            if (idx < 0)
             {
-                // se a imagem atual do array é a exibida
-                if (img_array[i] == pbx_imagens.Image)
+                MessageBox.Show("Imagem atual não foi identificada no conjunto de imagens.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // número esperado correspondente (1..10)
+            int esperado = (idx / 3) + 1;
+
+            // registra índice para o jogador atual (mantendo sua lógica) e evita duplicação
+            if (vez_jogador1)
+            {
+                if (!listJog1.Contains(idx))
                 {
-                    encontrada = true;
-                    // número correto correspondente ao grupo de 3 imagens
-                    int esperado = j;
-
-                    if (chute == esperado)
-                    {
-                        // acerto
-                        if (vez_jogador1)
-                        {
-                            jogador1_pontos++;
-                            contador1++;
-                            lbl_pontos1.Text = jogador1_pontos.ToString();
-
-                            if (rtb_Ind.Checked)
-                            {
-                                gbx_jogador.Text = "Pode jogar: " + txt_joogador.Text;
-                                // modo individual: mantém vez_jogador1 true
-                            }
-                            else if (rtb_dupla.Checked)
-                            {
-                                // alterna para jogador 2
-                                vez_jogador1 = false;
-                                vez_jogador2 = true;
-                                gbx_jogador.Text = "Vez de: " + txt_jogador2.Text;
-                            }
-                        }
-                        else if (vez_jogador2 && rtb_dupla.Checked)
-                        {
-                            jogador2_pontos++;
-                            contador2++;
-                            lbl_pontos2.Text = jogador2_pontos.ToString();
-                            // volta a vez para jogador1
-                            vez_jogador2 = false;
-                            vez_jogador1 = true;
-                            gbx_jogador.Text = "Vez de: " + txt_joogador.Text;
-                        }
-
-                        MessageBox.Show("Acertou!");
-                        acertou = true;
-                    }
-                    else
-                    {
-                        // erro: mostra resposta correta e alterna vez em modo dupla
-                        MessageBox.Show($"Errou! A resposta correta é {esperado}.", "Resposta");
-                        acertou = false;
-
-                        if (rtb_Ind.Checked)
-                        {
-                            contador1++;
-                            gbx_jogador.Text = "Pode jogar: " + txt_joogador.Text;
-                        }
-                        else if (rtb_dupla.Checked)
-                        {
-                            if (vez_jogador1)
-                            {
-                                contador1++;
-                                vez_jogador1 = false;
-                                vez_jogador2 = true;
-                                gbx_jogador.Text = "Vez de: " + txt_jogador2.Text;
-                            }
-                            else
-                            {
-                                contador2++;
-                                vez_jogador2 = false;
-                                vez_jogador1 = true;
-                                gbx_jogador.Text = "Vez de: " + txt_joogador.Text;
-                            }
-                        }
-                    }
-
-                    return; // já tratou o caso encontrado
+                    listJog1.Add(idx);
+                    contador1++;
                 }
-
-                // avança posição dentro do grupo de 3
-                k++;
-                if (k == 3)
+            }
+            else if (vez_jogador2)
+            {
+                if (!listJog2.Contains(idx))
                 {
-                    j++;
-                    k = 0;
+                    listJog2.Add(idx);
+                    contador2++;
                 }
             }
 
-            if (!encontrada)
+            // verifica acerto
+            if (chute == esperado)
             {
-                MessageBox.Show("Imagem atual não foi identificada no conjunto de imagens.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // acerto
+                if (vez_jogador1)
+                {
+                    jogador1_pontos++;
+                    lbl_pontos1.Text = jogador1_pontos.ToString();
+
+                    if (rtb_Ind.Checked)
+                    {
+                        gbx_jogador.Text = "Pode jogar: " + txt_joogador.Text;
+                        // modo individual: mantém vez_jogador1 true
+                    }
+                    else if (rtb_dupla.Checked)
+                    {
+                        // alterna para jogador 2
+                        vez_jogador1 = false;
+                        vez_jogador2 = true;
+                        gbx_jogador.Text = "Vez de: " + txt_jogador2.Text;
+                    }
+                }
+                else if (vez_jogador2 && rtb_dupla.Checked)
+                {
+                    jogador2_pontos++;
+                    lbl_pontos2.Text = jogador2_pontos.ToString();
+                    // volta a vez para jogador1
+                    vez_jogador2 = false;
+                    vez_jogador1 = true;
+                    gbx_jogador.Text = "Vez de: " + txt_joogador.Text;
+                }
+
+                MessageBox.Show("Acertou!");
+                acertou = true;
+            }
+            else
+            {
+                // erro: mostra resposta correta e alterna vez em modo dupla
+                MessageBox.Show($"Errou! A resposta correta é {esperado}.", "Resposta");
+                acertou = false;
+
+                if (rtb_Ind.Checked)
+                {
+                    gbx_jogador.Text = "Pode jogar: " + txt_joogador.Text;
+                }
+                else if (rtb_dupla.Checked)
+                {
+                    if (vez_jogador1)
+                    {
+                        vez_jogador1 = false;
+                        vez_jogador2 = true;
+                        gbx_jogador.Text = "Vez de: " + txt_jogador2.Text;
+                    }
+                    else
+                    {
+                        vez_jogador2 = false;
+                        vez_jogador1 = true;
+                        gbx_jogador.Text = "Vez de: " + txt_joogador.Text;
+                    }
+                }
             }
         }
 
