@@ -34,6 +34,11 @@ namespace Aprendendo_a_Contar
         bool acertou = false;
         int jogador1_pontos = 0;
         int jogador2_pontos = 0;
+        int contador1 = 0;
+        int contador2 = 0;
+
+        // gerador único para evitar comportamento repetido por recriação do Random
+        private Random rnd = new Random();
         #endregion
 
         #region load das img
@@ -180,7 +185,9 @@ namespace Aprendendo_a_Contar
                     {
                         MessageBox.Show("Renício do jogo", "", MessageBoxButtons.OK, MessageBoxIcon.Information,
                         MessageBoxDefaultButton.Button1);
-                        gerarNumeroAletorio();                        
+                        gerarNumeroAletorio();
+                        lbl_pontos1.Text = "0";
+                        lbl_pontos2.Text = "0";
                     }
 
                     if (rtb_dupla.Checked == true)
@@ -203,7 +210,8 @@ namespace Aprendendo_a_Contar
             
             pbx_imagens.Image = null;
             int numero;
-            numero = new Random().Next(0, 30);
+            // usa rnd único para evitar repetição por recriação
+            numero = rnd.Next(0, 30);
             pbx_imagens.Image = img_array[numero];
             return;
 
@@ -214,52 +222,52 @@ namespace Aprendendo_a_Contar
 
         private void button3_Click(object sender, EventArgs e)
         {
-            verificar_chute(1);
+            rotina_btn(1);
         }
 
         private void btn_2_Click(object sender, EventArgs e)
         {
-            verificar_chute(2);
+            rotina_btn(2);
         }
 
         private void btn_3_Click(object sender, EventArgs e)
         {
-            verificar_chute(3);
+            rotina_btn(3);
         }
 
         private void btn_4_Click(object sender, EventArgs e)
         {
-            verificar_chute(4);
+            rotina_btn(4);
         }
 
         private void btn_5_Click(object sender, EventArgs e)
         {
-            verificar_chute(5);
+            rotina_btn(5);
         }
 
         private void btn_6_Click(object sender, EventArgs e)
         {
-            verificar_chute(6);
+            rotina_btn(6);
         }
 
         private void btn_7_Click(object sender, EventArgs e)
         {
-            verificar_chute(7);
+            rotina_btn(7);
         }
 
         private void btn_8_Click(object sender, EventArgs e)
         {
-            verificar_chute(8);
+            rotina_btn(8);
         }
 
         private void btn_9_Click(object sender, EventArgs e)
         {
-            verificar_chute(9);
+            rotina_btn(9);
         }
 
         private void btn_10_Click(object sender, EventArgs e)
         {
-            verificar_chute(10);
+            rotina_btn(10);
         }
 
         #endregion
@@ -288,6 +296,7 @@ namespace Aprendendo_a_Contar
                         if (vez_jogador1)
                         {
                             jogador1_pontos++;
+                            contador1++;
                             lbl_pontos1.Text = jogador1_pontos.ToString();
 
                             if (rtb_Ind.Checked)
@@ -306,6 +315,7 @@ namespace Aprendendo_a_Contar
                         else if (vez_jogador2 && rtb_dupla.Checked)
                         {
                             jogador2_pontos++;
+                            contador2++;
                             lbl_pontos2.Text = jogador2_pontos.ToString();
                             // volta a vez para jogador1
                             vez_jogador2 = false;
@@ -322,16 +332,23 @@ namespace Aprendendo_a_Contar
                         MessageBox.Show($"Errou! A resposta correta é {esperado}.", "Resposta");
                         acertou = false;
 
-                        if (rtb_dupla.Checked)
+                        if (rtb_Ind.Checked)
+                        {
+                            contador1++;
+                            gbx_jogador.Text = "Pode jogar: " + txt_joogador.Text;
+                        }
+                        else if (rtb_dupla.Checked)
                         {
                             if (vez_jogador1)
                             {
+                                contador1++;
                                 vez_jogador1 = false;
                                 vez_jogador2 = true;
                                 gbx_jogador.Text = "Vez de: " + txt_jogador2.Text;
                             }
                             else
                             {
+                                contador2++;
                                 vez_jogador2 = false;
                                 vez_jogador1 = true;
                                 gbx_jogador.Text = "Vez de: " + txt_joogador.Text;
@@ -357,6 +374,58 @@ namespace Aprendendo_a_Contar
             }
         }
 
-            #endregion
+        #endregion
+
+        #region rotina btn
+
+        private void rotina_btn(int chute)
+        {
+            // verifica fim antes de executar a jogada
+            if (contador1 >= 10 || contador2 >= 10)
+            {
+                FinalizarJogo();
+                return;
+            }
+
+            // executa a verificação do chute
+            verificar_chute(chute);
+
+            // se após o chute alguém atingiu o limite, finaliza sem gerar nova imagem
+            if (contador1 >= 10 || contador2 >= 10)
+            {
+                FinalizarJogo();
+                return;
+            }
+
+            // caso contrário, prossegue com próxima imagem
+            gerarNumeroAletorio();
         }
+        #endregion
+
+        #region Finalizar Jogo  
+
+        private void FinalizarJogo()
+        {
+            string vencedor;
+            if (jogador1_pontos > jogador2_pontos)
+            {
+                vencedor = txt_joogador.Text;
+            }
+            else if (jogador2_pontos > jogador1_pontos)
+            {
+                vencedor = txt_jogador2.Text;
+            }
+            else
+            {
+                vencedor = "Empate!";
+            }
+            MessageBox.Show($"Fim de jogo! O vencedor é: {vencedor}", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // opcional: bloquear botões de chute (mantive comentado)
+            // btn_iniciar.Enabled = true;
+            // foreach (Control c in this.Controls) if (c is Button b && b.Name.StartsWith("btn_")) b.Enabled = false;
+        }
+
+        #endregion
+    }
 }
