@@ -32,18 +32,18 @@
             this.Btn_Autores = new System.Windows.Forms.Button();
             this.btn_iniciar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_pontos1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_10 = new System.Windows.Forms.Button();
+            this.btn_9 = new System.Windows.Forms.Button();
+            this.btn_8 = new System.Windows.Forms.Button();
+            this.btn_7 = new System.Windows.Forms.Button();
+            this.btn_6 = new System.Windows.Forms.Button();
+            this.btn_5 = new System.Windows.Forms.Button();
+            this.btn_4 = new System.Windows.Forms.Button();
+            this.btn_3 = new System.Windows.Forms.Button();
+            this.btn_2 = new System.Windows.Forms.Button();
+            this.btn_1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pbx_imagens = new System.Windows.Forms.PictureBox();
             this.gbx_jogador = new System.Windows.Forms.GroupBox();
@@ -52,6 +52,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rtb_dupla = new System.Windows.Forms.RadioButton();
             this.rtb_Ind = new System.Windows.Forms.RadioButton();
+            this.lbl_pontos2 = new System.Windows.Forms.Label();
+            this.lbl_jogador1 = new System.Windows.Forms.Label();
+            this.lbl_jogador2 = new System.Windows.Forms.Label();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -96,7 +99,10 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.lbl_jogador2);
+            this.groupBox5.Controls.Add(this.lbl_jogador1);
+            this.groupBox5.Controls.Add(this.lbl_pontos2);
+            this.groupBox5.Controls.Add(this.lbl_pontos1);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(333, 380);
             this.groupBox5.Name = "groupBox5";
@@ -106,29 +112,29 @@
             this.groupBox5.Text = "Score:";
             this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
-            // label1
+            // lbl_pontos1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 55);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "0";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lbl_pontos1.AutoSize = true;
+            this.lbl_pontos1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pontos1.Location = new System.Drawing.Point(60, 36);
+            this.lbl_pontos1.Name = "lbl_pontos1";
+            this.lbl_pontos1.Size = new System.Drawing.Size(51, 55);
+            this.lbl_pontos1.TabIndex = 0;
+            this.lbl_pontos1.Text = "0";
+            this.lbl_pontos1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button7);
-            this.groupBox4.Controls.Add(this.button9);
-            this.groupBox4.Controls.Add(this.button10);
-            this.groupBox4.Controls.Add(this.button11);
-            this.groupBox4.Controls.Add(this.button12);
-            this.groupBox4.Controls.Add(this.button8);
-            this.groupBox4.Controls.Add(this.button5);
-            this.groupBox4.Controls.Add(this.button6);
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.btn_10);
+            this.groupBox4.Controls.Add(this.btn_9);
+            this.groupBox4.Controls.Add(this.btn_8);
+            this.groupBox4.Controls.Add(this.btn_7);
+            this.groupBox4.Controls.Add(this.btn_6);
+            this.groupBox4.Controls.Add(this.btn_5);
+            this.groupBox4.Controls.Add(this.btn_4);
+            this.groupBox4.Controls.Add(this.btn_3);
+            this.groupBox4.Controls.Add(this.btn_2);
+            this.groupBox4.Controls.Add(this.btn_1);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(4, 380);
             this.groupBox4.Name = "groupBox4";
@@ -137,106 +143,115 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
-            // button7
+            // btn_10
             // 
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(246, 88);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(58, 43);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "10";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btn_10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_10.Location = new System.Drawing.Point(246, 88);
+            this.btn_10.Name = "btn_10";
+            this.btn_10.Size = new System.Drawing.Size(58, 43);
+            this.btn_10.TabIndex = 11;
+            this.btn_10.Text = "10";
+            this.btn_10.UseVisualStyleBackColor = true;
+            this.btn_10.Click += new System.EventHandler(this.btn_10_Click);
             // 
-            // button9
+            // btn_9
             // 
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(189, 88);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(51, 43);
-            this.button9.TabIndex = 10;
-            this.button9.Text = "9";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btn_9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_9.Location = new System.Drawing.Point(189, 88);
+            this.btn_9.Name = "btn_9";
+            this.btn_9.Size = new System.Drawing.Size(51, 43);
+            this.btn_9.TabIndex = 10;
+            this.btn_9.Text = "9";
+            this.btn_9.UseVisualStyleBackColor = true;
+            this.btn_9.Click += new System.EventHandler(this.btn_9_Click);
             // 
-            // button10
+            // btn_8
             // 
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(132, 88);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(51, 43);
-            this.button10.TabIndex = 9;
-            this.button10.Text = "8";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btn_8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_8.Location = new System.Drawing.Point(132, 88);
+            this.btn_8.Name = "btn_8";
+            this.btn_8.Size = new System.Drawing.Size(51, 43);
+            this.btn_8.TabIndex = 9;
+            this.btn_8.Text = "8";
+            this.btn_8.UseVisualStyleBackColor = true;
+            this.btn_8.Click += new System.EventHandler(this.btn_8_Click);
             // 
-            // button11
+            // btn_7
             // 
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Location = new System.Drawing.Point(75, 88);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(51, 43);
-            this.button11.TabIndex = 8;
-            this.button11.Text = "7";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btn_7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_7.Location = new System.Drawing.Point(75, 88);
+            this.btn_7.Name = "btn_7";
+            this.btn_7.Size = new System.Drawing.Size(51, 43);
+            this.btn_7.TabIndex = 8;
+            this.btn_7.Text = "7";
+            this.btn_7.UseVisualStyleBackColor = true;
+            this.btn_7.Click += new System.EventHandler(this.btn_7_Click);
             // 
-            // button12
+            // btn_6
             // 
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Location = new System.Drawing.Point(18, 88);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(51, 43);
-            this.button12.TabIndex = 7;
-            this.button12.Text = "6";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btn_6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_6.Location = new System.Drawing.Point(18, 88);
+            this.btn_6.Name = "btn_6";
+            this.btn_6.Size = new System.Drawing.Size(51, 43);
+            this.btn_6.TabIndex = 7;
+            this.btn_6.Text = "6";
+            this.btn_6.UseVisualStyleBackColor = true;
+            this.btn_6.Click += new System.EventHandler(this.btn_6_Click);
             // 
-            // button8
+            // btn_5
             // 
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(246, 39);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(58, 43);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "5";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btn_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_5.Location = new System.Drawing.Point(246, 39);
+            this.btn_5.Name = "btn_5";
+            this.btn_5.Size = new System.Drawing.Size(58, 43);
+            this.btn_5.TabIndex = 6;
+            this.btn_5.Text = "5";
+            this.btn_5.UseVisualStyleBackColor = true;
+            this.btn_5.Click += new System.EventHandler(this.btn_5_Click);
             // 
-            // button5
+            // btn_4
             // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(189, 39);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(51, 43);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "4";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_4.Location = new System.Drawing.Point(189, 39);
+            this.btn_4.Name = "btn_4";
+            this.btn_4.Size = new System.Drawing.Size(51, 43);
+            this.btn_4.TabIndex = 5;
+            this.btn_4.Text = "4";
+            this.btn_4.UseVisualStyleBackColor = true;
+            this.btn_4.Click += new System.EventHandler(this.btn_4_Click);
             // 
-            // button6
+            // btn_3
             // 
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(132, 39);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(51, 43);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "3";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btn_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_3.Location = new System.Drawing.Point(132, 39);
+            this.btn_3.Name = "btn_3";
+            this.btn_3.Size = new System.Drawing.Size(51, 43);
+            this.btn_3.TabIndex = 4;
+            this.btn_3.Text = "3";
+            this.btn_3.UseVisualStyleBackColor = true;
+            this.btn_3.Click += new System.EventHandler(this.btn_3_Click);
             // 
-            // button4
+            // btn_2
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(75, 39);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(51, 43);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "2";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_2.Location = new System.Drawing.Point(75, 39);
+            this.btn_2.Name = "btn_2";
+            this.btn_2.Size = new System.Drawing.Size(51, 43);
+            this.btn_2.TabIndex = 3;
+            this.btn_2.Text = "2";
+            this.btn_2.UseVisualStyleBackColor = true;
+            this.btn_2.Click += new System.EventHandler(this.btn_2_Click);
             // 
-            // button3
+            // btn_1
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(18, 39);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 43);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "1";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_1.Location = new System.Drawing.Point(18, 39);
+            this.btn_1.Name = "btn_1";
+            this.btn_1.Size = new System.Drawing.Size(51, 43);
+            this.btn_1.TabIndex = 2;
+            this.btn_1.Text = "1";
+            this.btn_1.UseVisualStyleBackColor = true;
+            this.btn_1.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox3
             // 
@@ -325,6 +340,34 @@
             this.rtb_Ind.UseVisualStyleBackColor = true;
             this.rtb_Ind.CheckedChanged += new System.EventHandler(this.rtb_Ind_CheckedChanged);
             // 
+            // lbl_pontos2
+            // 
+            this.lbl_pontos2.AutoSize = true;
+            this.lbl_pontos2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pontos2.Location = new System.Drawing.Point(60, 95);
+            this.lbl_pontos2.Name = "lbl_pontos2";
+            this.lbl_pontos2.Size = new System.Drawing.Size(51, 55);
+            this.lbl_pontos2.TabIndex = 1;
+            this.lbl_pontos2.Text = "0";
+            // 
+            // lbl_jogador1
+            // 
+            this.lbl_jogador1.AutoSize = true;
+            this.lbl_jogador1.Location = new System.Drawing.Point(8, 49);
+            this.lbl_jogador1.Name = "lbl_jogador1";
+            this.lbl_jogador1.Size = new System.Drawing.Size(54, 33);
+            this.lbl_jogador1.TabIndex = 2;
+            this.lbl_jogador1.Text = "J1:";
+            // 
+            // lbl_jogador2
+            // 
+            this.lbl_jogador2.AutoSize = true;
+            this.lbl_jogador2.Location = new System.Drawing.Point(8, 105);
+            this.lbl_jogador2.Name = "lbl_jogador2";
+            this.lbl_jogador2.Size = new System.Drawing.Size(54, 33);
+            this.lbl_jogador2.TabIndex = 3;
+            this.lbl_jogador2.Text = "J2:";
+            // 
             // jogo_contagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,18 +404,18 @@
         private System.Windows.Forms.Button btn_iniciar;
         private System.Windows.Forms.Button Btn_Autores;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_pontos1;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btn_1;
+        private System.Windows.Forms.Button btn_2;
+        private System.Windows.Forms.Button btn_5;
+        private System.Windows.Forms.Button btn_4;
+        private System.Windows.Forms.Button btn_3;
+        private System.Windows.Forms.Button btn_10;
+        private System.Windows.Forms.Button btn_9;
+        private System.Windows.Forms.Button btn_8;
+        private System.Windows.Forms.Button btn_7;
+        private System.Windows.Forms.Button btn_6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox pbx_imagens;
         private System.Windows.Forms.GroupBox gbx_jogador;
@@ -381,6 +424,9 @@
         private System.Windows.Forms.RadioButton rtb_dupla;
         private System.Windows.Forms.RadioButton rtb_Ind;
         private System.Windows.Forms.TextBox txt_jogador2;
+        private System.Windows.Forms.Label lbl_jogador1;
+        private System.Windows.Forms.Label lbl_pontos2;
+        private System.Windows.Forms.Label lbl_jogador2;
     }
 }
 
