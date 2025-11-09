@@ -122,10 +122,6 @@ namespace Aprendendo_a_Contar
         }
         #endregion
 
-        private void txt_joogador_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         #region Btn Iniciar Jogo
         private void button1_Click(object sender, EventArgs e)
         {
