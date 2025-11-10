@@ -23,6 +23,7 @@ namespace Aprendendo_a_Contar
             txt_jogador2.Enabled = false;
             btn_iniciar.Enabled = false;
 
+
         }
 
         #region Vareaveis Globais
