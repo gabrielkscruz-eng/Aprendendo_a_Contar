@@ -36,6 +36,8 @@ namespace Aprendendo_a_Contar
         int jogador2_pontos = 0;
         int contador1 = 0;
         int contador2 = 0;
+        int tempoRestante = 5;
+
         // preservando sua lógica: listas por jogador para registrar índices já vistos
         List<int> listJog1 = new List<int>();
         List<int> listJog2 = new List<int>();
@@ -54,6 +56,7 @@ namespace Aprendendo_a_Contar
 
                 string caminho = Directory.GetCurrentDirectory() + "\\img_" + f + "_ (" + j + ").jpg";
 
+
                 img_array[i] = Image.FromFile(caminho);
             }
 
@@ -65,7 +68,7 @@ namespace Aprendendo_a_Contar
         #region Btn Autor
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Gabriel Kevin Ra: 24198 \nCaique Caruso Ra:240000", "Autores", MessageBoxButtons.OK, MessageBoxIcon.Information,
+            MessageBox.Show("Gabriel Kevin Ra: 24198 \nCaique Caruso Ra:243667", "Autores", MessageBoxButtons.OK, MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button2);
         }
         #endregion
@@ -214,13 +217,15 @@ namespace Aprendendo_a_Contar
                     txt_jogador2.Enabled = false;   
                 }
         }
+            tempoRestante = 5;
+            tmr_Jogo.Start();
+
         }
         #endregion
 
         #region numero aleatorio
         private void gerarNumeroAletorio()
         {
-            
             pbx_imagens.Image = null;
             int numero;
             // usa rnd único para evitar repetição por recriação
@@ -406,6 +411,8 @@ namespace Aprendendo_a_Contar
 
             // caso contrário, prossegue com próxima imagem
             gerarNumeroAletorio();
+            tempoRestante = 5;
+
         }
         #endregion
 
@@ -427,6 +434,7 @@ namespace Aprendendo_a_Contar
                 vencedor = "Empate!";
             }
             MessageBox.Show($"Fim de jogo! O vencedor é: {vencedor}", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            tmr_Jogo.Stop();
 
             // opcional: bloquear botões de chute (mantive comentado)
             // btn_iniciar.Enabled = true;
@@ -434,5 +442,44 @@ namespace Aprendendo_a_Contar
         }
 
         #endregion
+
+        #region Timer do Jogo
+        private void tmr_Jogo_Tick(object sender, EventArgs e)
+        {
+            tempoRestante--;
+            lbl_timer.Text = tempoRestante.ToString();
+
+            // Mostra o tempo na barra de título ou num label, se quiser
+            this.Text = $"Jogo da Contagem - Tempo restante: {tempoRestante}s";
+
+            if (tempoRestante <= 0)
+            {
+                tmr_Jogo.Stop();
+                MessageBox.Show("Tempo esgotado!");
+
+                // Contabiliza erro automaticamente
+                if (rtb_dupla.Checked)
+                {
+                    if (vez_jogador1)
+                    {
+                        vez_jogador1 = false;
+                        vez_jogador2 = true;
+                        gbx_jogador.Text = "Vez de: " + txt_jogador2.Text;
+                    }
+                    else
+                    {
+                        vez_jogador2 = false;
+                        vez_jogador1 = true;
+                        gbx_jogador.Text = "Vez de: " + txt_joogador.Text;
+                    }
+                }
+
+                gerarNumeroAletorio();
+                tempoRestante = 5;
+                tmr_Jogo.Start();
+            }
+        }
+        #endregion
     }
+
 }

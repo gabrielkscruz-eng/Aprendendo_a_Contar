@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.Btn_Autores = new System.Windows.Forms.Button();
             this.btn_iniciar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lbl_jogador2 = new System.Windows.Forms.Label();
+            this.lbl_jogador1 = new System.Windows.Forms.Label();
+            this.lbl_pontos2 = new System.Windows.Forms.Label();
             this.lbl_pontos1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_10 = new System.Windows.Forms.Button();
@@ -52,9 +56,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rtb_dupla = new System.Windows.Forms.RadioButton();
             this.rtb_Ind = new System.Windows.Forms.RadioButton();
-            this.lbl_pontos2 = new System.Windows.Forms.Label();
-            this.lbl_jogador1 = new System.Windows.Forms.Label();
-            this.lbl_jogador2 = new System.Windows.Forms.Label();
+            this.tmr_Jogo = new System.Windows.Forms.Timer(this.components);
+            this.lbl_timer = new System.Windows.Forms.Label();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -111,6 +114,34 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Score:";
             this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
+            // 
+            // lbl_jogador2
+            // 
+            this.lbl_jogador2.AutoSize = true;
+            this.lbl_jogador2.Location = new System.Drawing.Point(8, 105);
+            this.lbl_jogador2.Name = "lbl_jogador2";
+            this.lbl_jogador2.Size = new System.Drawing.Size(54, 33);
+            this.lbl_jogador2.TabIndex = 3;
+            this.lbl_jogador2.Text = "J2:";
+            // 
+            // lbl_jogador1
+            // 
+            this.lbl_jogador1.AutoSize = true;
+            this.lbl_jogador1.Location = new System.Drawing.Point(8, 49);
+            this.lbl_jogador1.Name = "lbl_jogador1";
+            this.lbl_jogador1.Size = new System.Drawing.Size(54, 33);
+            this.lbl_jogador1.TabIndex = 2;
+            this.lbl_jogador1.Text = "J1:";
+            // 
+            // lbl_pontos2
+            // 
+            this.lbl_pontos2.AutoSize = true;
+            this.lbl_pontos2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pontos2.Location = new System.Drawing.Point(60, 95);
+            this.lbl_pontos2.Name = "lbl_pontos2";
+            this.lbl_pontos2.Size = new System.Drawing.Size(51, 55);
+            this.lbl_pontos2.TabIndex = 1;
+            this.lbl_pontos2.Text = "0";
             // 
             // lbl_pontos1
             // 
@@ -255,6 +286,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lbl_timer);
             this.groupBox3.Controls.Add(this.pbx_imagens);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(4, 137);
@@ -340,33 +372,19 @@
             this.rtb_Ind.UseVisualStyleBackColor = true;
             this.rtb_Ind.CheckedChanged += new System.EventHandler(this.rtb_Ind_CheckedChanged);
             // 
-            // lbl_pontos2
+            // tmr_Jogo
             // 
-            this.lbl_pontos2.AutoSize = true;
-            this.lbl_pontos2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pontos2.Location = new System.Drawing.Point(60, 95);
-            this.lbl_pontos2.Name = "lbl_pontos2";
-            this.lbl_pontos2.Size = new System.Drawing.Size(51, 55);
-            this.lbl_pontos2.TabIndex = 1;
-            this.lbl_pontos2.Text = "0";
+            this.tmr_Jogo.Interval = 1000;
+            this.tmr_Jogo.Tick += new System.EventHandler(this.tmr_Jogo_Tick);
             // 
-            // lbl_jogador1
+            // lbl_timer
             // 
-            this.lbl_jogador1.AutoSize = true;
-            this.lbl_jogador1.Location = new System.Drawing.Point(8, 49);
-            this.lbl_jogador1.Name = "lbl_jogador1";
-            this.lbl_jogador1.Size = new System.Drawing.Size(54, 33);
-            this.lbl_jogador1.TabIndex = 2;
-            this.lbl_jogador1.Text = "J1:";
-            // 
-            // lbl_jogador2
-            // 
-            this.lbl_jogador2.AutoSize = true;
-            this.lbl_jogador2.Location = new System.Drawing.Point(8, 105);
-            this.lbl_jogador2.Name = "lbl_jogador2";
-            this.lbl_jogador2.Size = new System.Drawing.Size(54, 33);
-            this.lbl_jogador2.TabIndex = 3;
-            this.lbl_jogador2.Text = "J2:";
+            this.lbl_timer.AutoSize = true;
+            this.lbl_timer.Location = new System.Drawing.Point(529, 126);
+            this.lbl_timer.Name = "lbl_timer";
+            this.lbl_timer.Size = new System.Drawing.Size(93, 33);
+            this.lbl_timer.TabIndex = 1;
+            this.lbl_timer.Text = "label1";
             // 
             // jogo_contagem
             // 
@@ -390,6 +408,7 @@
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_imagens)).EndInit();
             this.gbx_jogador.ResumeLayout(false);
             this.gbx_jogador.PerformLayout();
@@ -427,6 +446,8 @@
         private System.Windows.Forms.Label lbl_jogador1;
         private System.Windows.Forms.Label lbl_pontos2;
         private System.Windows.Forms.Label lbl_jogador2;
+        private System.Windows.Forms.Timer tmr_Jogo;
+        private System.Windows.Forms.Label lbl_timer;
     }
 }
 
