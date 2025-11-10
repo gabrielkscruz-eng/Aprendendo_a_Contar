@@ -24,6 +24,7 @@ namespace Aprendendo_a_Contar
             btn_iniciar.Enabled = false;
 
 
+
         }
 
         #region Vareaveis Globais
