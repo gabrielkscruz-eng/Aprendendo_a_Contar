@@ -22,6 +22,7 @@ namespace Aprendendo_a_Contar
             txt_joogador.Enabled = false;
             txt_jogador2.Enabled = false;
             btn_iniciar.Enabled = false;
+            ligar_desligar_btns(false);
 
         }
 
@@ -68,9 +69,25 @@ namespace Aprendendo_a_Contar
         #region Btn Autor
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Gabriel Kevin Ra: 24198 \nCaique Caruso Ra:243667", "Autores", MessageBoxButtons.OK, MessageBoxIcon.Information,
+            MessageBox.Show("Gabriel Kevin RA: 24198 \nCaique Caruso RA:243667", "Autores", MessageBoxButtons.OK, MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button2);
         }
+        #endregion
+
+        #region Desligar e ligar btns de chute
+
+        private void ligar_desligar_btns(bool estado)
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                Button btn = this.Controls.Find("btn_" + i, true).FirstOrDefault() as Button;
+                if (btn != null)
+                {
+                    btn.Enabled = estado; // Habilita ou desabilita os botões
+                }
+            }
+        }
+
         #endregion
 
         #region Lixo ou Acidente
@@ -105,6 +122,16 @@ namespace Aprendendo_a_Contar
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_timer_Click(object sender, EventArgs e)
         {
 
         }
@@ -219,11 +246,14 @@ namespace Aprendendo_a_Contar
         }
             tempoRestante = 5;
             tmr_Jogo.Start();
+            ligar_desligar_btns(true);
+            rtb_dupla.Enabled = false;
+            rtb_Ind.Enabled = false;
 
         }
         #endregion
 
-        #region numero aleatorio
+        #region Número aleatorio
         private void gerarNumeroAletorio()
         {
             pbx_imagens.Image = null;
@@ -290,7 +320,7 @@ namespace Aprendendo_a_Contar
 
         #endregion
 
-        #region função de verificação do chute
+        #region Função de verificação do chute
 
         private void verificar_chute(int chute)
         {
@@ -388,7 +418,7 @@ namespace Aprendendo_a_Contar
 
         #endregion
 
-        #region rotina btn
+        #region Rotina btn
 
         private void rotina_btn(int chute)
         {
@@ -423,22 +453,27 @@ namespace Aprendendo_a_Contar
             string vencedor;
             if (jogador1_pontos > jogador2_pontos)
             {
-                vencedor = txt_joogador.Text;
+                if (rtb_Ind.Checked)
+                    vencedor = $"Fim de jogo! {txt_joogador.Text} fez {jogador1_pontos} pontos!";
+                else
+                    vencedor = txt_joogador.Text;
             }
             else if (jogador2_pontos > jogador1_pontos)
             {
-                vencedor = txt_jogador2.Text;
+                vencedor = $"Fim de jogo! O vencedor é {txt_jogador2.Text}";
             }
             else
             {
-                vencedor = "Empate!";
+                vencedor = "Fim de jogo deu Empate!";
             }
-            MessageBox.Show($"Fim de jogo! O vencedor é: {vencedor}", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(vencedor, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tmr_Jogo.Stop();
+            ligar_desligar_btns(false);
+            rtb_dupla.Enabled = true;
+            rtb_Ind.Enabled = true;
 
-            // opcional: bloquear botões de chute (mantive comentado)
             // btn_iniciar.Enabled = true;
-            // foreach (Control c in this.Controls) if (c is Button b && b.Name.StartsWith("btn_")) b.Enabled = false;
+            // foreach (Control c in this.Controls) if (c is Button b && b.Name.StartsWith("btn_")) b.Ened = false;abl
         }
 
         #endregion
@@ -480,6 +515,16 @@ namespace Aprendendo_a_Contar
             }
         }
         #endregion
+
+        private void lbl_pontos2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

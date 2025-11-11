@@ -49,6 +49,8 @@
             this.btn_2 = new System.Windows.Forms.Button();
             this.btn_1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_timer = new System.Windows.Forms.Label();
             this.pbx_imagens = new System.Windows.Forms.PictureBox();
             this.gbx_jogador = new System.Windows.Forms.GroupBox();
             this.txt_jogador2 = new System.Windows.Forms.TextBox();
@@ -57,7 +59,6 @@
             this.rtb_dupla = new System.Windows.Forms.RadioButton();
             this.rtb_Ind = new System.Windows.Forms.RadioButton();
             this.tmr_Jogo = new System.Windows.Forms.Timer(this.components);
-            this.lbl_timer = new System.Windows.Forms.Label();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -69,6 +70,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox6.Controls.Add(this.Btn_Autores);
             this.groupBox6.Controls.Add(this.btn_iniciar);
             this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -79,6 +81,7 @@
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Menu:";
+            this.groupBox6.Enter += new System.EventHandler(this.groupBox6_Enter);
             // 
             // Btn_Autores
             // 
@@ -102,6 +105,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox5.Controls.Add(this.lbl_jogador2);
             this.groupBox5.Controls.Add(this.lbl_jogador1);
             this.groupBox5.Controls.Add(this.lbl_pontos2);
@@ -118,7 +122,7 @@
             // lbl_jogador2
             // 
             this.lbl_jogador2.AutoSize = true;
-            this.lbl_jogador2.Location = new System.Drawing.Point(8, 105);
+            this.lbl_jogador2.Location = new System.Drawing.Point(0, 105);
             this.lbl_jogador2.Name = "lbl_jogador2";
             this.lbl_jogador2.Size = new System.Drawing.Size(54, 33);
             this.lbl_jogador2.TabIndex = 3;
@@ -127,7 +131,7 @@
             // lbl_jogador1
             // 
             this.lbl_jogador1.AutoSize = true;
-            this.lbl_jogador1.Location = new System.Drawing.Point(8, 49);
+            this.lbl_jogador1.Location = new System.Drawing.Point(0, 49);
             this.lbl_jogador1.Name = "lbl_jogador1";
             this.lbl_jogador1.Size = new System.Drawing.Size(54, 33);
             this.lbl_jogador1.TabIndex = 2;
@@ -137,17 +141,18 @@
             // 
             this.lbl_pontos2.AutoSize = true;
             this.lbl_pontos2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pontos2.Location = new System.Drawing.Point(60, 95);
+            this.lbl_pontos2.Location = new System.Drawing.Point(49, 91);
             this.lbl_pontos2.Name = "lbl_pontos2";
             this.lbl_pontos2.Size = new System.Drawing.Size(51, 55);
             this.lbl_pontos2.TabIndex = 1;
             this.lbl_pontos2.Text = "0";
+            this.lbl_pontos2.Click += new System.EventHandler(this.lbl_pontos2_Click);
             // 
             // lbl_pontos1
             // 
             this.lbl_pontos1.AutoSize = true;
             this.lbl_pontos1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pontos1.Location = new System.Drawing.Point(60, 36);
+            this.lbl_pontos1.Location = new System.Drawing.Point(49, 36);
             this.lbl_pontos1.Name = "lbl_pontos1";
             this.lbl_pontos1.Size = new System.Drawing.Size(51, 55);
             this.lbl_pontos1.TabIndex = 0;
@@ -156,6 +161,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox4.Controls.Add(this.btn_10);
             this.groupBox4.Controls.Add(this.btn_9);
             this.groupBox4.Controls.Add(this.btn_8);
@@ -286,6 +292,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.lbl_timer);
             this.groupBox3.Controls.Add(this.pbx_imagens);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -297,10 +305,30 @@
             this.groupBox3.Text = "Quantos tem?";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(505, 90);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 33);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Timer:";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // lbl_timer
+            // 
+            this.lbl_timer.AutoSize = true;
+            this.lbl_timer.Location = new System.Drawing.Point(610, 90);
+            this.lbl_timer.Name = "lbl_timer";
+            this.lbl_timer.Size = new System.Drawing.Size(31, 33);
+            this.lbl_timer.TabIndex = 1;
+            this.lbl_timer.Text = "5";
+            this.lbl_timer.Click += new System.EventHandler(this.lbl_timer_Click);
+            // 
             // pbx_imagens
             // 
             this.pbx_imagens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbx_imagens.Location = new System.Drawing.Point(189, 39);
+            this.pbx_imagens.Location = new System.Drawing.Point(207, 39);
             this.pbx_imagens.Name = "pbx_imagens";
             this.pbx_imagens.Size = new System.Drawing.Size(292, 192);
             this.pbx_imagens.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -309,6 +337,7 @@
             // 
             // gbx_jogador
             // 
+            this.gbx_jogador.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gbx_jogador.Controls.Add(this.txt_jogador2);
             this.gbx_jogador.Controls.Add(this.txt_joogador);
             this.gbx_jogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -338,6 +367,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Controls.Add(this.rtb_dupla);
             this.groupBox2.Controls.Add(this.rtb_Ind);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -377,19 +407,11 @@
             this.tmr_Jogo.Interval = 1000;
             this.tmr_Jogo.Tick += new System.EventHandler(this.tmr_Jogo_Tick);
             // 
-            // lbl_timer
-            // 
-            this.lbl_timer.AutoSize = true;
-            this.lbl_timer.Location = new System.Drawing.Point(529, 126);
-            this.lbl_timer.Name = "lbl_timer";
-            this.lbl_timer.Size = new System.Drawing.Size(93, 33);
-            this.lbl_timer.TabIndex = 1;
-            this.lbl_timer.Text = "label1";
-            // 
             // jogo_contagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(680, 539);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbx_jogador);
@@ -448,6 +470,7 @@
         private System.Windows.Forms.Label lbl_jogador2;
         private System.Windows.Forms.Timer tmr_Jogo;
         private System.Windows.Forms.Label lbl_timer;
+        private System.Windows.Forms.Label label1;
     }
 }
 
