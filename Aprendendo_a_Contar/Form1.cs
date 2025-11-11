@@ -38,6 +38,8 @@ namespace Aprendendo_a_Contar
         int contador1 = 0;
         int contador2 = 0;
         int tempoRestante = 5;
+        List<int> usados = new List<int>();
+        int numero;
 
         // preservando sua lógica: listas por jogador para registrar índices já vistos
         List<int> listJog1 = new List<int>();
@@ -132,6 +134,16 @@ namespace Aprendendo_a_Contar
         }
 
         private void lbl_timer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_pontos2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
         {
 
         }
@@ -257,9 +269,13 @@ namespace Aprendendo_a_Contar
         private void gerarNumeroAletorio()
         {
             pbx_imagens.Image = null;
-            int numero;
+
             // usa rnd único para evitar repetição por recriação
-            numero = rnd.Next(0, 30);
+            while (usados.Contains(numero))
+            {
+                numero = rnd.Next(0, 30);
+            }
+            usados.Add(numero);
             pbx_imagens.Image = img_array[numero];
             return;
 
@@ -324,11 +340,16 @@ namespace Aprendendo_a_Contar
 
         private void verificar_chute(int chute)
         {
+            // pausa o timer enquanto mostra mensagens
+            tmr_Jogo.Stop();
+
             // identifica índice da imagem exibida no array
             int idx = Array.IndexOf(img_array, pbx_imagens.Image);
             if (idx < 0)
             {
                 MessageBox.Show("Imagem atual não foi identificada no conjunto de imagens.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // reinicia o timer se o jogo ainda não terminou
+                if (contador1 < 10 && contador2 < 10) { tempoRestante = 5; tmr_Jogo.Start(); }
                 return;
             }
 
@@ -356,7 +377,6 @@ namespace Aprendendo_a_Contar
             // verifica acerto
             if (chute == esperado)
             {
-                // acerto
                 if (vez_jogador1)
                 {
                     jogador1_pontos++;
@@ -365,11 +385,9 @@ namespace Aprendendo_a_Contar
                     if (rtb_Ind.Checked)
                     {
                         gbx_jogador.Text = "Pode jogar: " + txt_joogador.Text;
-                        // modo individual: mantém vez_jogador1 true
                     }
                     else if (rtb_dupla.Checked)
                     {
-                        // alterna para jogador 2
                         vez_jogador1 = false;
                         vez_jogador2 = true;
                         gbx_jogador.Text = "Vez de: " + txt_jogador2.Text;
@@ -379,18 +397,15 @@ namespace Aprendendo_a_Contar
                 {
                     jogador2_pontos++;
                     lbl_pontos2.Text = jogador2_pontos.ToString();
-                    // volta a vez para jogador1
                     vez_jogador2 = false;
                     vez_jogador1 = true;
                     gbx_jogador.Text = "Vez de: " + txt_joogador.Text;
                 }
 
                 MessageBox.Show("Acertou!");
-                acertou = true;
             }
             else
             {
-                // erro: mostra resposta correta e alterna vez em modo dupla
                 MessageBox.Show($"Errou! A resposta correta é {esperado}.", "Resposta");
                 acertou = false;
 
@@ -414,6 +429,17 @@ namespace Aprendendo_a_Contar
                     }
                 }
             }
+
+            // se o jogo terminou, finalize sem reiniciar o timer
+            if (contador1 >= 10 || contador2 >= 10)
+            {
+                FinalizarJogo();
+                return;
+            }
+
+            // reinicia o timer e reseta o tempo para a próxima jogada
+            tempoRestante = 5;
+            tmr_Jogo.Start();
         }
 
         #endregion
@@ -468,6 +494,7 @@ namespace Aprendendo_a_Contar
             }
             MessageBox.Show(vencedor, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tmr_Jogo.Stop();
+            usados.Clear();
             ligar_desligar_btns(false);
             rtb_dupla.Enabled = true;
             rtb_Ind.Enabled = true;
@@ -515,16 +542,6 @@ namespace Aprendendo_a_Contar
             }
         }
         #endregion
-
-        private void lbl_pontos2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox6_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }
