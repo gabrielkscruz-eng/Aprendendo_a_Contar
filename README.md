@@ -24,10 +24,6 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 - Sugerir melhorias
 - Enviar pull requests
 
-## 📄 Licença
-
-[Adicione informação sobre a licença do projeto]
-
 ## 👨‍💻 Autor
 
 Desenvolvido por [gabrielkscruz-eng](https://github.com/gabrielkscruz-eng)
